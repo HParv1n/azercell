@@ -1,0 +1,59 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: parvin
+      changes:
+        - createTable:
+            tableName: customers
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: surname
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: birthdate
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: gsm_number
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: balance
+                  type: decimal(10,4)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: created_at
+                  type: timestamp
+                  constraints:
+                    nullable: true
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  constraints:
+                    nullable: true
+                    onUpdate: CURRENT_TIMESTAMP
+
+            foreignKeys:
+              - foreignKey:
+                  name: fk_customer
+                  baseColumnNames: customer
+                  baseTableName: customer
+                  referencedColumnNames: id
+

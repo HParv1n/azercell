@@ -1,0 +1,25 @@
+server:
+  port: 8082
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  datasource:
+    url: jdbc:mysql://mysqldbdev.ctwc6abmvhxh.eu-north-1.rds.amazonaws.com:3306/mysqldbdev
+    username: user
+    password: mysqldbdev
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+
+client:
+  url: http://localhost:8080/api/customers
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 160000000
+        readTimeout: 160000000
